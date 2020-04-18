@@ -35,7 +35,7 @@ class APIClient:
         response_json = response.json()
         return response_json
 
-    def get_fairprice_avail(self, postal_code):
+    def get_fairprice_slots(self, postal_code):
         headers = {
             "Host" : APIClient.FAIPRICE_HOST
         }
@@ -56,7 +56,7 @@ class APIClient:
 
         return response["data"]["available"]
 
-    def get_giant_avail(self, postal_code):
+    def get_giant_slots(self, postal_code):
         headers = {
             "Host" : APIClient.GIANT_HOST
         }
@@ -66,9 +66,9 @@ class APIClient:
 
         logger.debug(f"giant availability response : {response}")
 
-        return True if response["earliest"] else False
+        return response["timeslot"]
 
-    def get_coldstorage_avail(self, postal_code):
+    def get_coldstorage_slots(self, postal_code):
         headers = {
             "Host" : APIClient.COLDSTORAGE_HOST
         }
@@ -78,5 +78,5 @@ class APIClient:
 
         logger.debug(f"cold storage availability response : {response}")
 
-        return True if response["earliest"] else False
+        return response["timeslot"]
 
