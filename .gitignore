@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
+=======
+
+# JetBrains settings
+.idea/
+.vscode/
+
+>>>>>>> dd14f32... initial commit
